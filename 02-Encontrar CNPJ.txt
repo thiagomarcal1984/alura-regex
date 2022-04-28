@@ -1,0 +1,24 @@
+02-Encontrar CNPJ
+
+Não é necessário escapar os hífens com barra invertida.
+
+Padrão: \d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}
+\d{2}   achar dois dígitos; 
+\.      achar um ponto literal;
+\d{3}   achar três dígitos; 
+\.      achar um ponto literal;
+\d{3}   achar três dígitos; 
+/\      achar uma barra;
+d{4}    achar quatro dígitos; 
+-       achar um hifen;
+\d{2}   achar dois dígitos.
+
+
+Outro padrão: \d{2}(\.\d{3}){2}\/\d{4}-\d{2}
+
+\d{2}           achar dois dígitos;
+(\.\d{3}){2}    achar dois grupos compostos de um ponto literal e 3 dígitos;
+\/              achar a barra;
+\d{4}           achar 4 dígitos;
+-               achar o hífen;
+\d{2}           achar 2 dígitos.
