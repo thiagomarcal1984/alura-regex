@@ -1,0 +1,22 @@
+03-Encontrar IP
+
+String alvo: 126.1.112.34 128.126.12.244 192.168.0.34
+
+Padrão sem usar grupos:
+\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}
+
+(
+    \d{1,3} => mínimo de 1 dígito e máximo de três dígitos
+    \.      => um ponto literal
+
+    \d{1,3} => mínimo de 1 dígito e máximo de três dígitos
+    \.      => um ponto literal
+
+    \d{1,3} => mínimo de 1 dígito e máximo de três dígitos
+    \.      => um ponto literal
+)
+\d{1,3} => mínimo de 1 dígito e máximo de três dígitos
+
+Padrão usando grupos:
+(\d{1,3}\.){3}  => o grupo (1 a 3 dígitos e um ponto) se repete 3 vezes.
+\d{1,3}         => mínimo de 1 dígito e máximo de três dígitos
