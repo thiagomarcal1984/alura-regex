@@ -3,9 +3,10 @@
     Alvo: (21) 3216-2345 ou (21) 93216-2345
 
 \s  = busca espaços em branco (tabs, quebra de linha etc.).
+*   = quantificador de zero ou mais vezes.
 
 Respostas propostas:
-(\(?\d{2}\)?\s?)?9?\d{4}(-| )?\d{4}  => DDD e parênteses opcionais, 
+(\(?\d{2}\)?\s*)?9?\d{4}(-| )?\d{4}  => DDD e parênteses opcionais, 
     espaço ou hífen opcionais, 9 para celulares ou nada e os 8 dígitos do telefone.
 
 \(\d{2}\) ?9?\d{4}-?\d{4}  => DDD, parênteses e espaço obrigatórios, 
