@@ -4,6 +4,7 @@ Alvo:
     9.8 - Robson, 7.1 - Teresa, 4.5 - Armênio, 6.5 - Zulu, 
     7.7 - Stefania, 7.8 - João, 5.0 - Romeu, 7.2 - Pompilho, 
     3.1 - Reinaldo, 7.3 - Bernadete, 4.7 - Cinério 
+    10 - Bruce, 9.5 - Miranda, 7.9    - Bob, 10 - Zimbabue, 7.5 - Bety
 
 A RegEx a seguir não captura o nome do João:
     7.[2-9]\s+-\s+\w+
@@ -26,3 +27,13 @@ Detalhamento da RegEx:
 
 Alternativa para o exercício: incluir a classe [À-ú] para os caracteres acentuados:
 7\.[2-9]\s+-\s+(\w|[À-ú])+
+
+RegEx inadequada para buscar alunos com notas entre 7.5 e 7.9:
+    [7]\.[5-9] - \w+
+
+    Esta RegEx não considera que pode haver mais de um espaço entre a nota e o hífen, 
+    ou entre o hífen e o nome do aluno.
+
+RegEx adequadas para buscar alunos com notas entre 7.5 e 7.9:
+    [7]\.[5-9]\s+-\s+\w+            => \s+
+    [7]\.[5-9]\s{1,}-\s{1,}\w+      => \s{1,}
