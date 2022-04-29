@@ -26,4 +26,9 @@ Segunda modificação RegEx:
     \d              => Dígitos de 0 a 9.
     [0123456789]    => O mesmo que \d.
     [0-9]           => O mesmo que \d. O hífen separa os límites de alcance da classe.
+
+    Como obtemos os números de 1 a 3 e de 6 a 9 com classes?
+    Com [1-36-9].
+    Dentro da classe, os limites são separados pelo hífen. 
+    Depois do último caracter-limite, outros caracteres podem aparecer.
     
