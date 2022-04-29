@@ -1,0 +1,12 @@
+11-Separando joio do trigo
+
+Alvo: BALEIRO GARROTE SERROTE GOLEIRO ROTEIRO 
+
+Resultado esperado: GARROTE, SERROTE, ROTEIRO
+
+RegEx proposta:
+\w*ROTE\w*  => Pega zero ou mais caracteres [A-Za-z_]antes e depois da cadeira ROTE.
+
+RegEx do curso: 
+[A-Z]*ROT[A-Z]+ =>  Força o uso de maiúsculas. 
+                    E depois da palavra ROT pode ser qualquer letra maiúscula.
