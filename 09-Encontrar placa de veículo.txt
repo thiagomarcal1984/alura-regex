@@ -1,0 +1,9 @@
+09-Encontrar placa de veículo
+
+Alvo: KMG-8089.
+
+RegEx proposta:
+[A-Z]{3}-?\d{4} => 3 letras maiúsculas. Hífen opcional. 4 números.
+
+RegEx do curso:
+[A-Z]{3}-\d{4}  => O hífen é obrigatório.
