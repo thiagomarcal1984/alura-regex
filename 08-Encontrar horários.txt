@@ -1,0 +1,22 @@
+08-Encontrar horários
+
+    Alvo: 19h32min16s
+
+    Resposta proposta:
+    [12]?\dh[1-6]\dmin[1-6]\ds
+
+    Resposta do exercício:
+    \d{2}h\d{2}min\d{2}s
+
+    Resposta alternativa da Alura: 
+    [0-9]{2}h[0-9]{2}min[0-9]{2}s
+
+Dica: o metacaracter \w encontra o que está nas classes [a-z], [A-Z], [0-9] e _ (underscore).
+
+    A nossa regex aceita também de 32 ate 39 no dia. 
+    Se sim como permitir apenas dias 1 ate 31? 
+    Ela pode aceitar 38 de Maio de 2019. 
+    Como impedir o número de dias maior que 32?
+
+Como limitar os dias (RegEx MUITO extensa):
+https://stackoverflow.com/questions/15491894/regex-to-validate-date-format-dd-mm-yyyy
