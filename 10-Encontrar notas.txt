@@ -23,3 +23,6 @@ Detalhamento da RegEx:
 -       => hífen literal.
 \s+     => 1 ou mais espaços.
 [^,]+   => Qualquer caractere, exceto a vírgula. O ^ dentro de uma classe nega o caractere.
+
+Alternativa para o exercício: incluir a classe [À-ú] para os caracteres acentuados:
+7\.[2-9]\s+-\s+(\w|[À-ú])+
