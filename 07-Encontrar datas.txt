@@ -1,0 +1,41 @@
+07-Encontrar datas
+
+    Obtendo valores de um arquivo CSV: 
+
+    João Fulano,123.456.789-00,21 de Maio de 1993,(21) 3079-9987,Rua do Ouvidor,50,20040-030,Rio de Janeiro
+    Maria Fulana, 98765432100,11 de Abril de 1995,(11) 933339871,Rua Vergueiro,3185,04101-300,São Paulo
+    denise teste, 987.654.321.00,28 de Dezembro de 1991,(31)45562712,SCS Qd. 8 Bl. B-50,11,70333-900,Rio Grande
+
+O quantificador pode ficar sem um limite máximo!!!
+
+    Ex.: x{2,}  => Busca o caractere x repetidos pelo menos duas vezes. 
+    Matches: xx, xxx, xxxx etc.
+
+    O quantificador + equivale a {1,}.
+
+RESUMO DOS QUANTIFICADORES:
+
+    ? = zero ou uma vez.
+    * = zero ou mais vezes.
+    + = uma ou mais vezes.
+    {n} = exatamente n vezes.
+    {n,} = no mínimo n vezes.
+    {n,m} = no mínimo n vezes, no máximo m vezes.
+
+
+Regex para selecionar a data:
+[1-3]?\d\s{1,}de\s{1,}[A-Z][a-zç]{3,9}\s+de\s+[12]\d{3}
+
+Onde: 
+[1-3]?          => Primeiro dígito do dia entre 1 e 3, opcional.
+\d              => Classe de caracteres do tipo dígito [0-9].
+\s{1,}          => Um ou mais espaços em branco.
+de              => "de" literal.
+\s{1,}          => Um ou mais espaços em branco.
+[A-Z]           => Inicial do mês em maiúscula.
+[a-zç]{3,9}     => Mínimo de 3 e máximo de novo caracteres de a até z ou ç (março).
+\s+             => Um ou mais espaços em branco.
+de              => "de" literal.
+\s+             => Um ou mais espaços em branco.
+[12]            => Primeiro dígito para o ano, limitado a 1 e 2.
+\d{3}           => Três últimos dígitos para o ano.
