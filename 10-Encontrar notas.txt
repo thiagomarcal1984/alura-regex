@@ -1,0 +1,25 @@
+10-Encontrar notas
+
+Alvo: 
+    9.8 - Robson, 7.1 - Teresa, 4.5 - Armênio, 6.5 - Zulu, 
+    7.7 - Stefania, 7.8 - João, 5.0 - Romeu, 7.2 - Pompilho, 
+    3.1 - Reinaldo, 7.3 - Bernadete, 4.7 - Cinério 
+
+A RegEx a seguir não captura o nome do João:
+    7.[2-9]\s+-\s+\w+
+
+RegEx proposta:
+    7\.[2-9]\s+-\s+[\wã]+    => Acréscimo de uma classe que contenha o ã.
+
+RegEx do curso:
+    7\.[2-9]\s+-\s+[A-Z][a-zã]+     => Inicial maiúscula e as demais letras minúsculas ou ã.
+    7\.[2-9]\s+-\s+[^,]+            => Resposta alternativa.
+
+Detalhamento da RegEx:
+7       => 7 literal.
+\.      => ponto literal.
+[2-9]   => dígitos de 2 a 9.
+\s+     => 1 ou mais espaços.
+-       => hífen literal.
+\s+     => 1 ou mais espaços.
+[^,]+   => Qualquer caractere, exceto a vírgula. O ^ dentro de uma classe nega o caractere.
