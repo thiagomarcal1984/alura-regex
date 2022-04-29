@@ -1,0 +1,29 @@
+06-Refinando a RegEx de CPF
+
+    Obtendo valores de um arquivo CSV: 
+
+    João Fulano,123.456.789-00,21 de Maio de 1993,(21) 3079-9987,Rua do Ouvidor,50,20040-030,Rio de Janeiro
+    Maria Fulana, 98765432100,11 de Abril de 1995,(11) 933339871,Rua Vergueiro,3185,04101-300,São Paulo
+    denise teste, 987.654.321.00,28 de Dezembro de 1991,(31)45562712,SCS Qd. 8 Bl. B-50,11,70333-900,Rio Grande
+
+Regex original:
+    \d{3}\.\d{3}\.\d{3}-\d{2}       => Obriga o uso dos pontos (\.) e do hífen (-).
+
+    Usando o quantificador ?, o caracter anterior fica opcional. A ? equivale a {0,1}.
+
+Primeira modificação na RegEx:
+    \d{3}\.?\d{3}\.?\d{3}-?\d{2}    => Torna opcionais o ponto (\.?) e o hífen (-?).
+
+    Classe de caracteres agrupa os caracteres que desejamos que casem com o padrão.
+    A sintaxe das classes de caracteres é com colchetes envolvendo os caracteres: [-.].
+    PERCEBA QUE O PONTO DENTRO DA CLASSE NÃO PRECISA SER ESCAPADO. 
+    A exceção para o hífen dentro da classe é para limitar os caracteres ([0-9], [a-z] etc.).
+
+Segunda modificação RegEx:
+    \d{3}\.?\d{3}\.?\d{3}[-.]?\d{2}    => O dig. verificador pode ser separado por ponto ou hífen.
+
+    Exemplos de classes de caracteres:
+    \d              => Dígitos de 0 a 9.
+    [0123456789]    => O mesmo que \d.
+    [0-9]           => O mesmo que \d. O hífen separa os límites de alcance da classe.
+    
