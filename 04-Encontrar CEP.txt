@@ -1,0 +1,18 @@
+04-Encontrar CEP
+
+    Obtendo valores de um arquivo CSV: 
+
+    João Fulano,123.456.789-00,21 de Maio de 1993,(21) 3079-9987,Rua do Ouvidor,50,20040-030,Rio de Janeiro
+    Maria Fulana, 98765432100,11 de Abril de 1995,(11) 933339871,Rua Vergueiro,3185,04101-300,São Paulo
+    denise teste, 987.654.321.00,28 de Dezembro de 1991,(31)45562712,SCS Qd. 8 Bl. B-50,11,70333-900,Rio Grande
+
+Respostas propostas: 
+    Com hífen obrigatório:
+    [0-9]{5}-[0-9]{3} ou \d{5}-\d{3} 
+
+    Com hífen opcional: 
+    [0-9]{5}-?[0-9]{3} ou \d{5}-?\d{3}
+
+    Com hífen e ponto opcionais:
+    [0-9]{2}\.?[0-9]{3}-?[0-9]{3} ou \d{2}\.?\d{3}-?\d{3}
+    
