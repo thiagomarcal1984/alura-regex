@@ -1,0 +1,11 @@
+Código da RegeEx original: 
+    var stringRegex = [0123]?\d\s+de\s+[A-Z][a-zç]{1,8}\s+de\s+[12]\d{3};
+
+Código da RegEx mais legível, usando variáveis:
+    var DIA  = "[0123]?\d"; 
+    var _DE_ = "\s+de\s+";
+    var MES  = "[A-Za-z][a-zç]{1,8}";
+    var ANO  = "[12]\d{3}";
+
+    var stringRegex = DIA + _DE_ +  MES + _DE_ + ANO;
+    
