@@ -1,0 +1,30 @@
+14-Âncoras
+
+Âncora é uma forma de encontrar uma posição dentro do texto.
+Âncora devolve uma posição, não um caractere.
+
+\b = word boundary anchor, âncora de limite de palavra. Salvo engano, a 
+        classe \b exclui todo caracter que não seja da classe \w (word).
+
+\w = word char, classe de caracteres correspondente a [A-Za-z0-9_], ou
+        seja, letras, números e o underline.
+
+Exemplo 1: 
+
+    Alvo: denise teste, 987.654.321.00,28 de Dezembro de 1991,(31)45562712,SCS Qd. 8 Bl. B-50,11,70333-900,Rio Grande
+
+    Padrão: \bde\b  => Padrão que casa a palavra "de". Palavras que contenham "de" 
+            não vão casar com o padrão.
+
+    Resultado: 2 "de" (aqueles da data de 28 de dezembro de 1991).
+
+Exemplo 2: 
+    Alvo: aaaZ aaaa aaa aaaa -aaa
+
+    Padrão: \baaa\b  => Padrão que casa apenas 3 repetições da letra a.
+
+    Resultado: 2 matches (as âncoras de word boundary quebram impedem o casamento
+            de 4 letras a seguidas). Perceba que o "z" em "aaaZ" não casa com
+            o padrão, que o "-" em "-aaa" casa com o padrão (hífen não é 
+            da classe \w -word char).
+
