@@ -48,3 +48,18 @@ Exemplo 5:
     Alvo: afile:///E:/regex/index.html_ (repare no "a" no início)
     Padrão:^file.+\.html$   => Começa com "file", termina com ".html".
     Resultado: não há match.
+
+
+
+\B = Non word boundary, o inverso do \b.
+
+Exemplo 6: 
+    Alvo: português proporcional compor
+    Padrão: \Bpor\B
+    Resultado: um único match (em pro*por*cional.)
+            "português" tem uma word boundary no início;
+            "compor" tem uma word boundary no final;
+            "proporcional" é cercado por letras, não por word boundaries.
+            Em outras palavras, a silaba por deve aparecer dentro de uma palavra, nunca no inicio ou fim.
+
+
