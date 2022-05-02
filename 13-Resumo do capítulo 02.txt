@@ -1,0 +1,10 @@
+13-Resumo do capítulo 02
+
+Podemos definir facilmente a classe de qualquer caractere com o [A-Z].
+
+Conhecemos todos os quantifiers como ?, +, * e {n}.
+
+\s significa whitespace e é um atalho para [ \t\r\n\f].
+
+\w significa word char e é uma atalho para [A-Za-z0-9_].
+
