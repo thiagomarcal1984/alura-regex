@@ -1,5 +1,7 @@
 14-Âncoras
 
+Site interessante com exercícios de RegEx: https://regexone.com/
+
 Âncora é uma forma de encontrar uma posição dentro do texto.
 Âncora devolve uma posição, não um caractere.
 
@@ -28,3 +30,21 @@ Exemplo 2:
             o padrão, que o "-" em "-aaa" casa com o padrão (hífen não é 
             da classe \w -word char).
 
+
+^ = âncora de início de linha.
+$ = âncora de fim de linha.
+
+Exemplo 3:
+    Alvo: file:///E:/regex/index.html
+    Padrão:^file.+\.html$   => Começa com "file", termina com ".html".
+    Resultado: um match (a linha inteira).
+    
+Exemplo 4:
+    Alvo: file:///E:/regex/index.html_ (repare no underline no fim)
+    Padrão:^file.+\.html$   => Começa com "file", termina com ".html".
+    Resultado: não há match.
+
+Exemplo 5:
+    Alvo: afile:///E:/regex/index.html_ (repare no "a" no início)
+    Padrão:^file.+\.html$   => Começa com "file", termina com ".html".
+    Resultado: não há match.
