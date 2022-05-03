@@ -1,0 +1,22 @@
+16-O detetive e a mensagem criptografada
+
+    Um agente secreto conseguiu capturar a seguinte mensagem criptografada:
+    
+    Z171PZ7AZ23PZ7819AZ78GZ1AZ99IZ34O
+
+    Depois de algum tempo, ele descobriu a seguinte lei de formação: 
+    cada letra da palavra recebe o prefixo Z, mas não apenas isso. 
+    A letra Z é seguida de um número com um ou mais dígitos.
+
+    Com base nessa informação ultra secreta, crie uma expressão regular que 
+    consiga evidenciar a palavra secreta. ATENÇÃO: para resolver este problema 
+    você precisará trabalhar com grupos, não deixe de marcar a opção 
+    "Mostrar grupos" do nosso testador de expressão regulares.
+
+
+    Alvo: Z171PZ7AZ23PZ7819AZ78GZ1AZ99IZ34O
+    Alguns padrões: 
+    Z\d+(\w)
+    (?:Z\d+)([A-Y])
+    (?:[^Z\d+])
+    
