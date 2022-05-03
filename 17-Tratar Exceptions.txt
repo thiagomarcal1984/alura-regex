@@ -1,0 +1,20 @@
+17  Tratar Exceptions
+
+Separe a causa da descrição da Exception Java.
+
+Alvo: Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+Padrão proposto:
+    ^(Caused by:\s+[\w\.]+): (.+)$
+
+Resultado: 
+    Geral: Match da linha toda.
+    Grupo 1: Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException
+    Grupo 2: Communications link failure
+
+Padrões alternativos: 
+    (Caused[\s\w:.]+):([\w\s]+)
+    (^.*n:\B)((?:\s+)\b[A-Z].*$)
+    (^.*Exception:)((?:\s+)\b[A-Z].*$)
+    (Caused[\s\w:.-]+.Exception):([\w\s]+)
+    
