@@ -1,0 +1,39 @@
+19-Desafio 02 - Validando e-mail
+
+    Use os âncoras ^ e $;
+
+    Analise parte por parte:
+        primeiro focando na parte local (tudo antes do @);
+        depois no domínio (tudo depois do @);
+    você pode repetir um grupo:
+        por exemplo, (([a-z]+)\.)+ significa vários caracteres 
+        minúsculos seguido por ponto, uma ou mais vezes.
+
+Alvo do que deve ser encontrado:
+    donkey.kong@kart.com.br
+    bowser1@games.info 
+    super-mario@nintendo.JP
+    TEAM.donkey-kong@MARIO.kart1.nintendo.com
+
+Alvo do que NÃO deve ser encontrado: 
+    toad@kart...com
+    wario@kart@nintendo.com
+    yoshi@nintendo
+    daisy@nintendo.b
+    ..@email.com
+
+Padrão proposto:
+    [^@](?:\w+[\.\-]?)+@\w{2,}(?:\.\w{2,})+
+
+Padrão de resposta da Alura:
+    ^([\w-]\.?)+@([\w-]+\.)+([A-Za-z]{2,4})+$
+
+    Detalhamento do Padrão: 
+    ^ e $       => Marca o início e o fim da linha pesquisada.
+    ([\w-]\.?)+@    => Caracteres referentes ao usuário (antes da arroba)
+        [\w-]\.?                => Define uma classe de chars composta de word char, ponto e hifen.
+        (   [\w-]\.?    )+@     => Permite a repetição desse padrão (uma ou mais vezes).
+    ([\w-]+\.)+([A-Za-z]{2,4})+ => Caracteres referentes ao domínio (depois da arroba)
+        ([\w-]+\.)+         => mesmos critérios do usuário (antes da arroba), porém obriga o uso de um ponto.
+        ([A-Za-z]{2,4})+    => o mínimo de letras na parte final deve ter entre 2 e 4 chars.
+        
