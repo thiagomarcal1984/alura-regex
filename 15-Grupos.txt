@@ -53,3 +53,13 @@ Non-capturing group.
         Grupo de mês: 3 resultados também (Maio, Abril e Dezembro).
         Grupo de ano: 3 resultados também (21, 11 e 28).
         Grupo do "de": zero resultados (o ?: impediu o match).
+
+Positive lookahead: https://cursos.alura.com.br/forum/topico-positive-lookahead-96300
+    Alvo: matheuzs  u  ulala  us
+    Padrão: (u(?=s))
+    Agora, apenas o u do us será selecionado como resultado de combinação. 
+    As letras u das demais palavras não serão selecionadas.
+
+    Não confundir com a notação de non capturing groups:
+    Padrão: (u(?:s))
+    Assim, captura-se a palavra us, não captura só o u da palavra us.
