@@ -1,0 +1,17 @@
+21-Expressões gananciosas
+
+    Usar o ponto de interrogação depois de um quantificador (*+{,}) evita o 
+    comportamento ganancioso do padrão que vem antes do quantificador.
+
+Alvo: <h1 class="text-left">Expressões regulares</h1>
+
+Padrão ganancioso: <h1.+>       => Captura desde o início da tag até o último sinal de maior (>).
+Padrão preguiçoso: <[\w.]+?>    => Captura o que está antes do texto "Expressões regulares".
+
+O padrão a seguir captura a tag de abertura e o conteúdo:
+    <h1.+?>([\w\sõãí.]+)
+
+O padrão a seguir casa com uma tag de abertura e fechamento e o seu conteúdo,
+mas só o conteúdo é capturado:
+    <h1.+?>([\w\sõãí.]+)</h1>
+    
