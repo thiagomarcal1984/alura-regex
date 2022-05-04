@@ -63,3 +63,20 @@ Positive lookahead: https://cursos.alura.com.br/forum/topico-positive-lookahead-
     Não confundir com a notação de non capturing groups:
     Padrão: (u(?:s))
     Assim, captura-se a palavra us, não captura só o u da palavra us.
+
+Outro exemplo de positive lookahead: https://cursos.alura.com.br/forum/topico-e-se-na-palvra-tiver-a-letra-z-29923
+    Alvo: Z98098ZZ890IZ9876RZ9876AZ9876LZ757DZ0798O
+    Padrão positive lookahead: \w(?=Z[\d]+|$)
+        \w  => Um word char;
+        (?= => Início do positive lookahead (isso sai do match)
+            Z   => Começa com Z
+            [\d+]   => Um ou mais dígitos
+            |   => alternativa
+            $   => fim de linha. Sem ela, o "O" de Ziraldo não aparece.
+        )
+    Resultado: Z, I, R, A, L, D, O
+
+    Padrão negative lookahead: [a-zA-Z](?!\d)   => Procura por uma letra e o proximo caracter não pode ser um número.
+        [a-zA-Z]    => Qualquer letra.
+        (?!\d)      => Não captura o dígito após a letra.
+
