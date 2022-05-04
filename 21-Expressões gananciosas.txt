@@ -30,3 +30,7 @@ Alvo: alura
 
     Padrão preguiçoso: [a-z]{1,5}?
     Resultado preguiçoso: 5 matches (a, l, u, r, a)
+
+Mais exemplos:
+    Padrão: <h1[^>]+> // Captura toda tag h1 que é seguida por caracteres que não sejam maior, até encontrar o primeiro maior.
+    Este é um padrão sem o uso de quantifier preguiçoso.
