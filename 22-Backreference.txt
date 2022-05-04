@@ -1,0 +1,53 @@
+22-Backreference
+
+    É necessário buscar apenas as tags HTML h1 ou h2.
+    Detalhe: a tag de abertura deve ser a mesma que a de fechamento.
+
+    Os grupos de captura são numerados. Uma vez capturados, nós os 
+    referenciamos usando \1, \2 etc.
+
+    Nota: non capturing groups não recebem essa numeração, justamente 
+    porque eles não são definidos para captura.
+
+Alvo: <h1 class="text-left">Expressões regulares</h1>
+
+Padrão: <(h1|h2).+?>([\w\sõãí.]+)</\1>
+    Onde: 
+    <(h1|h2).+?>    => Tag de abertura (pode ser h1 ou h2) e seus atributos.
+    ([\w\sõãí.]+)   => Conteúdo da tag (qualquer quantidade dos caracteres dentro da classe).
+    </\1>           => Tag de fechamento. Repare na backreference ao grupo nº. \1.
+
+Resultado:
+    Global: <h1 class="text-left">Expressões regulares</h1>
+    Grupo 1: tag h1 ou h2
+    Grupo 2: Conteúdo da tag.
+
+
+Exercício:
+Nosso sistema conversa com um sistema de catalogo de produtos usando SOAP, abaixo podemos ver um exemplo de uma das mensagens:
+
+    <soap:Envelope xmlns:soap="http://www.w3.org/2001/12/soap-envelope" 
+                soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
+
+    <soap:Body xmlns:m="http://www.caelum.com.br/produto">
+    <m:GetStock>
+        <p1> ... </p1>
+    </m:GetStock>
+    </soap:Body>
+
+    </soap:Envelope>
+
+Essas mensagens serão lidas por uma fila de mensagens que irá ordená-las pela tag de prioridade (p1, p2, p3, etc). 
+Precisamos criar um filtro que valide essa tag de prioridade e uma das coisas que esse filtro precisará verificar 
+é se a tag que abre é a mesma que está sendo fechada, evitando situações como: <p1> ... </p3>.
+
+As prioridades variam de 1 (menor prioridade) até 9 (maior prioridade). Qual expressão regular podemos utilizar 
+para garantir o fechamento de uma tag de qualquer prioridade?
+
+    Padrão: <(p[1-9])>.*<\/\1>
+
+    1) No primeiro grupo há uma tag de prioridade que pode ir de 1 até 9, por isso: <(p[1-9])>
+    2) Podemos ter qualquer item no meio: .*
+    3) E por último, usamos o BackReference para garantir que a tag será fechada com a mesma tag usada 
+        na abertura, escapando a barra de fechamento da tag: <\/\1>
+
