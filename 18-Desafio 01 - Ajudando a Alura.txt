@@ -1,0 +1,38 @@
+18-Desafio 01 - Ajudando a Alura
+
+    Site sobre RegEx em e-mails: https://emailregex.com/
+
+
+    Na Alura existe um filtro de permissões para habilitar alguns recursos para 
+    usuários da Alura ou da Caelum. A sua tarefa é criar a regex que verifica o 
+    email desses usuários e extrair o nome do usuário
+
+    O email deve ter um @ e terminar com caelum.com.br ou alura.com.br. O nome 
+    do usuário (tudo antes do @) tem apenas letras minúsculas, pode ter um 
+    número no final e tem de 5 a 15 caracteres.
+
+    Mais uma dica, para definir dentro de um grupo que queremos um OU outro 
+    usamos o caractere | (pipe). Por exemplo, selecionando alfa OU beta, 
+    escrevemos (alfa|beta)
+
+
+
+Alvo: super.mario@caelum.com.br 
+    donkey.kong@alura.com.br
+    bowser1@alura.com.br 
+    qwertyuiopqwer0q@gmail.com
+
+Padrões propostos: 
+    \b([a-z.]{5,14}[\da-z.]?)@           // Sem usar o pipe(|).
+    \b([.a-z]{5,15}|[.a-z]{5,14}\d)@    // Usando o pipe (|).
+
+Padrão do exercícios:
+    ([a-z.]{4,14}[a-z\d])@(?:caelum.com.br|alura.com.br)
+    ([a-z.]{4,14}[a-z\d])@(?:caelum|alura)\.com\.br     => Proposta de um dos alunos.
+
+Padrões de outras pessoas:
+    ([a-z]+.?[a-z]+\d?)@(?:caelum|alura).com.br
+    ([\w.]{5,15})@(?:caelum.com.br|alura.com.br)
+    \b([a-z.]{4,14}[a-z\d])@(?:caelum.com.br|alura.com.br)\b
+    \b([A-Za-z0-9_.]{4,14}[a-z\d])@
+    ^([a-z]+.?[a-z]+\d?)@(?:alura|caelum).com.br$
