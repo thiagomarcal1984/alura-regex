@@ -14,4 +14,19 @@ O padrão a seguir captura a tag de abertura e o conteúdo:
 O padrão a seguir casa com uma tag de abertura e fechamento e o seu conteúdo,
 mas só o conteúdo é capturado:
     <h1.+?>([\w\sõãí.]+)</h1>
+
+
+Outro exemplo:
+
+Alvo: alura
+    Padrão ganancioso: [a-z]+
+    Resultado ganancioso: 1 match (alura).
+
+    Padrão preguiçoso: [a-z]+?
+    Resultado preguiçoso: 5 matches (a, l, u, r, a)
     
+    Padrão ganancioso: [a-z]{1,5}
+    Resultado ganancioso: 1 match (alura).
+
+    Padrão preguiçoso: [a-z]{1,5}?
+    Resultado preguiçoso: 5 matches (a, l, u, r, a)
