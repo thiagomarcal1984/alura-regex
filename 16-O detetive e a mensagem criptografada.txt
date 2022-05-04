@@ -20,3 +20,6 @@
     (?:Z\d+)([A-Y])
     (?:[^Z\d+])
     
+
+Usando negação para identificar o que não queremos:
+    Padrão: [^Z\d]  => Captura toda palavra que não siga o padrão Z\d!!!
