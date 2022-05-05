@@ -47,7 +47,31 @@ namespace HelloWorld
                 Console.WriteLine("Índice inicial: " + matching.Index);
                 Console.WriteLine("Comprimento: " + matching.Length);
                 Console.WriteLine();
+
+                data();
             }
+
+            static void data()
+            {
+                {
+                    string alvo = "2007-12-31";
+                    string pattern = @"(\d\d\d\d)-(\d\d)-(\d\d)";
+
+                    Regex regex = new Regex(pattern);
+                    Match match = regex.Match(alvo);
+
+                    string resultado = string.Format(
+                        "{0}/{1}/{2}",
+                        match.Groups[3].Value,
+                        match.Groups[2].Value,
+                        match.Groups[1].Value
+                    );
+
+                    Console.WriteLine();
+                    Console.WriteLine("Reformatando a data " +  alvo + ": ");
+                    Console.WriteLine("Resultado: " + resultado);
+            }
+        }
        }
     }
 }
