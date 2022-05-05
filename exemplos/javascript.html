@@ -65,6 +65,18 @@
         // Se a RegEx não tivesse a flag global, só o primeiro hifen seria substituído.
         
         console.log('Data reformatada: ' +  anoMesDia);
+
+
+        // O poder do 'split'.
+        // Como podemos isolar todos os números da String, independente do separador?
+        var arquivo = '100,200-150,200;20';
+        var valores = arquivo.split(','); // Separando por vírgulas somente não funciona.
+        console.log(valores); // Saída:  ['100', '200-150', '200;20']
+        
+        // var exp = /[,;-]/g;
+        var exp = /[\D]/g; // Solução alternativa: o separador é qualquer coisa que NÃO seja dígito.
+        valores = arquivo.split(exp); // Separando com a RegEx.
+        console.log(valores); // Saída:  ['100', '200', '150', '200', '20']
     </script>
 </head>
 <body>
