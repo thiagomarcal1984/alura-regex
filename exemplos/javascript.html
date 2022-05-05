@@ -85,7 +85,7 @@
         console.log(valores); // Saída:  ['100', '200', '150', '200', '20']
 
 
-        // O retorno de match.
+        // O retorno de match!
         var codigos = 'A121B12112C12212F12G01';
         console.log('Variável codigos: '+codigos);
         /**
@@ -118,6 +118,19 @@
     </script>
 </head>
 <body>
-    Consulte o Console nas ferramentas de desenvolvedor (F12 no Google Chrome) para ver as saídas.
+    <p>
+        Consulte o Console nas ferramentas de desenvolvedor (F12 no Google Chrome) para ver as saídas.
+    </p>
+    <h2>RegEx em Formulários HTML</h2>
+    <p>
+        Use o atributo <code>pattern</code> para aplicar uma RegEx em um campo de formulário.
+        Assim, o próprio navegador procede à validação.
+    </p>
+
+    <form>
+        <label for="numero" title="Informe um número de zero a nove.">Número: </label>
+        <input name="numero" type="text" pattern="[0-9]">
+        <button type="submit">Enviar</button>
+    </form>
 </body>
 </html>
