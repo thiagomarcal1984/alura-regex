@@ -1,0 +1,13 @@
+23-RegEx em diferentes linguagens
+
+Alvo: 11a22b33c
+Regex: (\d\d)(\w)
+
+JavaScript
+Ruby
+PHP
+Python
+C#
+Java
+
+Consulte o conteúdo da pasta exemplos para ver como as RegEx funcionam nessas linguagens.

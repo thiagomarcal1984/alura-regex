@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>RegEx com JavaScript</title>
+    <script>
+        var alvo = '11aa22bb33dd';
+
+        // Nesse tipo de String, o JavaScript precisa de escapar as barras invertidas.
+        var pattern = '(\\d\\d)(\\w)'; 
+        var exp = new RegExp(pattern, 'g'); // O g significa que o padrão será aplicado globalmente.
+        // var exp = new RegExp(pattern, 'g'); // O i significa Ignore Case, não diferencia maiúscula de minúscula.
+        console.log('Retorna true se a string \"alvo\" corresponder ao padrão da RegEx: ');
+        console.log('Padrão: ' + pattern);
+        console.log('Alvo: ' + alvo);
+        console.log('Resultado da função ex.test(alvo): ' + exp.test(alvo));
+        console.log('');
+
+        // Há outro tipo de notação sem envolver com aspas, e que dispensa o escape de caracteres especiais.
+        // Notação ideal para expressões regulares que não mudem durante a execução (caso não se concatene strings).
+        var exp = /(\d\d)(\w)/g; 
+
+
+        console.log('Resultado da RegEx:');
+        
+        while (resultado = exp.exec(alvo)) {
+            console.log('Match: ');
+            console.log(resultado);
+            console.log('Exibindo a posição final do match na String.');
+            console.log(exp.lastIndex);
+        }
+        /*
+        Saída esperada: ['11a', '11', 'a', index: 0, input: '11aa22bb33dd', groups: undefined]
+            Perceba que:
+                1) Primeiro parâmetro é o match completo;
+                2) O segundo parâmetro é o match do primeiro grupo;
+                3) O terceiro parâmetro é o match do segundo grupo;
+                4) O parâmetro 'index' corresponde à posição inicial do match no alvo;
+                5) O parâmetro 'input' corresponde ao alvo;
+
+        Resultado da RegEx:
+             Match: 
+             (3) ['11a', '11', 'a', index: 0, input: '11aa22bb33dd', groups: undefined]
+             Exibindo a posição final do match na String.
+             3
+             Match: 
+             (3) ['22b', '22', 'b', index: 4, input: '11aa22bb33dd', groups: undefined]
+             Exibindo a posição final do match na String.
+             7
+             Match: 
+             (3) ['33d', '33', 'd', index: 8, input: '11aa22bb33dd', groups: undefined]
+             Exibindo a posição final do match na String.
+             11
+        */
+    </script>
+</head>
+<body>
+    Consulte o Console nas ferramentas de desenvolvedor (F12 no Google Chrome) para ver as saídas.
+</body>
+</html>
