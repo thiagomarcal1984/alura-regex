@@ -70,6 +70,10 @@ namespace HelloWorld
                     Console.WriteLine();
                     Console.WriteLine("Reformatando a data " +  alvo + ": ");
                     Console.WriteLine("Resultado: " + resultado);
+
+                    // Usando o replaceAll.
+
+                    Console.WriteLine("Substituindo hifens por barras no alvo: " + alvo.Replace("-", "/"));
             }
         }
        }
