@@ -1,0 +1,94 @@
+// Abrindo o Ruby Interativo (interactive ruby)
+C:\Users\Thiago>irb
+
+// Declarando a regex.
+irb(main):001:0> regex = /(\d\d)(\w)/
+=> /(\d\d)(\w)/
+
+// Declarando o alvo.
+irb(main):002:0> alvo = "11a22b33c"
+=> "11a22b33c"
+
+// Obtendo os matches da regex.
+irb(main):003:0> resultado = regex.match(alvo)
+=> #<MatchData "11a" 1:"11" 2:"a">
+
+// Obtendo o match global.
+irb(main):004:0> resultado[0]
+=> "11a"
+
+// Obtendo o match do 1o grupo.
+irb(main):005:0> resultado[1]
+=> "11"
+
+// Obtendo o match do 2o grupo.
+irb(main):006:0> resultado[2]
+=> "a"
+
+// Obtendo a primeira posição do match do segundo grupo no alvo.
+irb(main):007:0> resultado.begin 2
+=> 2
+// Perceba que no alvo "11a22b33c" a letra "a" é match do segundo 
+// grupo do padrão /(\d\d)(\w)/ e começa na terceira posição 
+// (índice 2) no alvo.
+
+// Obtendo a última posição do match do segundo grupo no alvo.
+irb(main):008:0> resultado.end 2
+=> 3
+// Perceba que no alvo "11a22b33c" a letra "a" é match do segundo 
+// grupo do padrão /(\d\d)(\w)/ e termina na quarta posição 
+// (índice 3) no alvo.
+
+// Obtendo a primeira posição do match geral no alvo.
+irb(main):009:0> resultado.begin 0
+=> 0
+// O match começa logo no início do alvo.
+
+// Obtendo a última posição do match geral no alvo.
+irb(main):010:0> resultado.end 0
+=> 3
+// O match geral termina na quarta posição (índice 3) do alvo.
+
+// Guardando os matches na variável resultado.
+irb(main):011:0> resultados = alvo.scan regex
+=> [["11", "a"], ["22", "b"], ["33", "c"]]
+// Cada grupo de matches é um array dentro do array geral de resultados.
+// Não é armazenado o match geral sem os grupos.
+
+// Obtendo o segundo grupo do terceiro match em resultados.
+irb(main):012:0> resultados[2][1]
+=> "c"
+
+// Obtendo o primeiro grupo do primeiro match em resultados.
+irb(main):013:0> resultados[0][0]
+=> "11"
+
+// Método gsub (global substitution) substitui tudo que casa com a regex pela
+//  string de substituição. gsub retorna uma cópia com a substituição aplicada.
+irb(main):014:0> cpf = "111.222.333-96".gsub(/[.-]/, "")
+=> "11122233396"
+
+
+// O método gsub! (com a exclamação) opera a substituição na própria string
+// que o chamou, não retorna uma cópia.
+irb(main):015:0> cpf = "111.222.333-96"
+=> "111.222.333-96"
+irb(main):016:0> cpf.gsub!(/[.-]/, "")
+=> "11122233396"
+irb(main):017:0> puts cpf
+11122233396
+=> nil
+
+// O método sub (substitution) opera a substituição apenas no primeiro 
+// match. Como o gsub, ele retorna uma cópia com a substituição aplicada.
+irb(main):018:0> cpfQuaseLimpo = "111.222.333-96".sub(/[.-]/,"")
+=> "111222.333-96"
+
+// O método sub! (substitution) opera a substituição apenas no primeiro 
+// match. Como o gsub!, ele retorna uma cópia com a substituição aplicada.
+irb(main):019:0> cpf = "111.222.333-96"
+irb(main):020:0> cpf.sub!(/[.-]/,"")
+=> "111222.333-96"
+irb(main):021:0> puts cpf
+111222.333-96
+=> nil
