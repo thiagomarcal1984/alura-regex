@@ -23,10 +23,16 @@
         console.log('Resultado da RegEx:');
         
         while (resultado = exp.exec(alvo)) {
-            console.log('Match: ');
+            console.log('Match (é um array com os grupos): ');
             console.log(resultado);
             console.log('Exibindo a posição final do match na String.');
             console.log(exp.lastIndex);
+
+            // Exibindo os grupos de cada match:
+            console.log('Exibindo os grupos de cada match:');
+            for (var i = 0; i < resultado.length; i++) {
+                console.log('   Grupo ' + i + ': ' + resultado[i]);
+            }
         }
         /*
         Saída esperada: ['11a', '11', 'a', index: 0, input: '11aa22bb33dd', groups: undefined]
@@ -77,6 +83,38 @@
         var exp = /[\D]/g; // Solução alternativa: o separador é qualquer coisa que NÃO seja dígito.
         valores = arquivo.split(exp); // Separando com a RegEx.
         console.log(valores); // Saída:  ['100', '200', '150', '200', '20']
+
+
+        // O retorno de match.
+        var codigos = 'A121B12112C12212F12G01';
+        console.log('Variável codigos: '+codigos);
+        /**
+         * A variável codigos guarda uma string com vários códigos concatenados.
+         * A lei de formação é a seguinte: todo código começa com uma letra 
+         * seguida de 1 ou mais dígitos. Precisamos extrair essas string num 
+         * array, ou seja, uma lista de código para que o desenvolvedor possa 
+         * verificar se cada um desses códigos existe no sistema.
+         *
+         *Uma expressão regular que podemos usar para selecionar quem é 
+         *código é a seguinte:
+         */
+        var exp = /[A-Za-z]\d+/g
+        console.log('Expressão regular: ' + exp);
+
+        /**
+         * E agora? Como extrair para um array quem segue esse padrão? 
+         * Toda string em JavaScript possui o método match. Ele aceita uma
+         *  expressão regular e retorna em um array todas as partes do alvo 
+         * que atendem a expressão regular. Usando match:
+         */
+        
+         var codigosExtraidos = codigos.match(exp);
+         console.log('Combinações extraídos do método match (oriunda do alvo): ');
+         console.log(codigosExtraidos);
+         /**
+          * Imprimindo codigosExtraidos temos:
+          * ["A121", "B12112", "C12212", "F12", "G01"]
+          */
     </script>
 </head>
 <body>
