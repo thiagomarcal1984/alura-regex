@@ -51,6 +51,20 @@
              Exibindo a posição final do match na String.
              11
         */
+
+
+        // Alterando o formato de uma data.
+        var anoMesDia = '2007-12-31';
+        console.log('Data original: ' + anoMesDia);
+        var exp = /-/g; // RegEx que busca só os hífens. Flag global para varrer o alvo inteiro.
+        anoMesDia = anoMesDia.replace(exp, '/'); // 1o parm: string velha ou regex; 2o parm: nova substring ou função.
+        
+        // Abaixo um exemplo de como substituir todos os caracteres sem RegEx em JavaScript:
+        // anoMesDia = anoMesDia.replaceAll('-', '/'); 
+
+        // Se a RegEx não tivesse a flag global, só o primeiro hifen seria substituído.
+        
+        console.log('Data reformatada: ' +  anoMesDia);
     </script>
 </head>
 <body>
