@@ -1,1 +1,5 @@
 __MACOSX
+.vscode/
+exemplos/csharp/bin
+exemplos/csharp/obj
+exemplos/java/src/regex/*.class
