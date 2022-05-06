@@ -54,7 +54,12 @@ public class Regex {
         Matcher matcher = pattern.matcher(alvo);
 
         if (matcher.find()) {
-            System.out.printf("Data formatada: %s/%s/%s%n:)", matcher.group(3), matcher.group(2), matcher.group(1) );
+            System.out.printf("Data formatada: %s/%s/%s%n:)%n%n", matcher.group(3), matcher.group(2), matcher.group(1) );
         }
+
+        System.out.println("Substituindo o separador de data");
+        String dataAlterada = alvo.replaceAll("-", "/");
+        System.out.println("Data original: " + alvo);
+        System.out.println("Data reformatada: " + dataAlterada);
     }
 }
