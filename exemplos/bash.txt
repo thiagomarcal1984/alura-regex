@@ -1,0 +1,87 @@
+[Bash] RegEx em Bash
+
+Desde a terceira versão, o Bash passou a ter um comparador de expressões 
+regulares "built-in", representado pelo operador =~
+
+Muitos truques em scripts que utilizavam grep ou sed podem agora ser 
+executados através de expressões regulares, tornando seu código mais fácil 
+de ler e manter.
+
+Como outros operadores de comparação, o Bash te retornará 0 se uma expressão
+como $DIGITO =~ "[[0-9]]" mostrar que a variável do lado esquerdo atende os 
+critérios de comparação do lado direito, caso contrário, retornará 1
+
+Nesse exemplo testamos se o valor de $DIGITO coincide com algum digito único 
+de 0 até 9.
+
+Seguindo essa ideia, podemos brincar com nossas expressões, colocando em 
+`ifs e até em for
+
+Veja os exemplos abaixo.
+
+Usando no if
+    if [[ $DIGITO =~ [0-9] ]]; then
+        echo "$DIGITO é um numero entre 0 e 9"
+    else
+        echo "$DIGITO não é um numero entre 0 e 9"
+    fi
+
+Usando no for
+    for numero in {1..100}
+    do
+        echo $numero
+    done
+(Esse exemplo nos dará todos os numeros de 1 até 100, muito mais simples né?!)
+
+podemos também apenas escrever:
+
+    echo {1..100}
+
+para termos todos os números de 1 até 100
+
+
+
+
+
+Seguindo essa lógica, responda abaixo qual conjunto de operação e saída está correta.
+
+
+Alternativa 1:
+    TAG="<img src="img.png">
+
+    if [[ $TAG =~ <(a)\s+href="(.+)"(?:>(.*)<\/\1>) ]]; then
+        echo "TAG é uma tag <a>"
+    else
+        echo "TAG não é uma tag <a>"
+    fi
+
+    saída:
+
+    TAG é uma tag
+
+
+    Errado! Está lembrado dessa RegEx? Ela serve apenas para as tags !
+
+Alternativa 2:
+    for letra in {c..g}
+    do
+        echo $letra
+    done
+
+    saída:
+
+    c d e f
+
+
+    Errado! O g aparecerá na saída!
+
+Alternativa 3
+    echo {1..-1}
+    saída:
+
+    1 0 -1
+
+
+    Correto! A saída começará no 1 e terminará no -1 (decrescente), 
+    se mudarmos a ordem e colocarmos {-1..1} teremos uma sequencia crescente!
+    
