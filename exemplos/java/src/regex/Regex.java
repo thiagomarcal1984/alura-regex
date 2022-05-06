@@ -15,6 +15,14 @@ import java.util.regex.Matcher;
 
 public class Regex {
     public static void main(String[] args) {
+        introRegex();
+        System.out.println();
+        data();
+    }
+
+    public static void introRegex() {
+        System.out.println("Introducao a Regex em Java");
+
         Pattern pattern = Pattern.compile("(\\d\\d)(\\w)"); 
         // Java exige o escape de barras inversas.
 
@@ -32,6 +40,21 @@ public class Regex {
             int end = matcher.end();
 
             System.out.printf("%s %s %s [%d,%d]%n", match, group1, group2, start, end);
+        }
+    }
+    
+    public static void data() {
+
+        System.out.println("Formatando datas com Regex");
+
+        Pattern pattern = Pattern.compile("(\\d{4})-(\\d{2})-(\\d{2})");
+        String alvo = "2007-12-31";
+        System.out.printf("Alvo: %s%n", alvo);
+
+        Matcher matcher = pattern.matcher(alvo);
+
+        if (matcher.find()) {
+            System.out.printf("Data formatada: %s/%s/%s%n:)", matcher.group(3), matcher.group(2), matcher.group(1) );
         }
     }
 }
